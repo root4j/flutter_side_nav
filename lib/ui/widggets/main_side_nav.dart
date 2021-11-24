@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 class MainSideNavDrawer extends StatelessWidget {
   const MainSideNavDrawer({Key? key}) : super(key: key);
 
+  void chatRoute(BuildContext context, String route) {
+    Navigator.of(context).pop();
+    Navigator.of(context).pushNamed(route);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -34,8 +39,13 @@ class MainSideNavDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.chat),
-            title: const Text('Chat'),
-            onTap: () => {Navigator.of(context).pushNamed('/chat')},
+            title: const Text('Chat Jim'),
+            onTap: () => {chatRoute(context, '/chat')},
+          ),
+          ListTile(
+            leading: const Icon(Icons.chat),
+            title: const Text('Chat Jeff'),
+            onTap: () => {chatRoute(context, '/chat2')},
           ),
           ListTile(
             leading: const Icon(Icons.settings),
